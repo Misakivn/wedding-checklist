@@ -114,8 +114,23 @@
     <label><input type="checkbox"><span>Chỉnh sửa và nhận ảnh – video cưới</span></label>
     <label><input type="checkbox"><span>Bắt đầu tuần trăng mật ✈️</span></label>
   </div>
+<script>
+  // Lưu và tải trạng thái checkbox bằng localStorage
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-</body>
+  checkboxes.forEach((checkbox, index) => {
+    const saved = localStorage.getItem('checkbox_' + index);
+    if (saved === 'true') {
+      checkbox.checked = true;
+      checkbox.parentElement.style.opacity = "0.5"; // nếu muốn mờ luôn khi load lại
+    }
+
+    checkbox.addEventListener('change', () => {
+      localStorage.setItem('checkbox_' + index, checkbox.checked);
+      checkbox.parentElement.style.opacity = checkbox.checked ? "0.5" : "1";
+    });
+  });
+</script></body>
 </html>
   <footer style="text-align: center; margin-top: 3em; font-size: 0.9em; color: #888;">
     Cảm ơn ChatGPT đã giúp mình tạo nên checklist này.  
