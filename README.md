@@ -1,6 +1,6 @@
 # Wedding Checklist 💒
 
-Zero coding skills, powered entirely by ChatGPT 😎💬
+Zero cooking skills, powered entirely by ChatGPT 😎💬
 
 ## 🛡️ Privacy & Security
 
