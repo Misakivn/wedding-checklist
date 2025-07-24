@@ -90,6 +90,14 @@ input[type="checkbox"] {
   transform: scale(1.2);
 }
 
+/* Hiệu ứng cho checklist đã hoàn thành */
+label input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: #888;
+  transition: all 0.2s;
+}
+
 footer {
   text-align: center;
   margin-top: 2em;
