@@ -91,7 +91,7 @@ input[type="checkbox"] {
 }
 
 /* Hiệu ứng cho checklist đã hoàn thành */
-label input[type="checkbox"]:checked + span {
+label > input[type="checkbox"]:checked + span {
   text-decoration: line-through;
   opacity: 0.5;
   color: #888;
