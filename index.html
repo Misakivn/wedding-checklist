@@ -7,7 +7,11 @@
   <style>
     body {
       font-family: 'Georgia', serif;
-      background: #fff0f5;
+      background-image: url('https://i.imgur.com/GX3RZ5a.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
       margin: 0;
       padding: 2em;
       color: #444;
@@ -18,9 +22,17 @@
       text-align: center;
     }
 
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 12px;
+      padding: 2em;
+      box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    }
+
     .section {
       margin: 2em auto;
-      max-width: 700px;
       background: #fff;
       border-radius: 12px;
       padding: 1.5em 2em;
@@ -51,17 +63,90 @@
       opacity: 0.4;
       transition: opacity 0.4s ease;
     }
+
+    button {
+      padding: 0.5em 1em;
+      margin: 0.5em 0;
+      font-size: 1em;
+      background-color: #fce4ec;
+      color: #c2185b;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f8bbd0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    footer a {
+      color: #c2185b;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0.5em;
+      }
+      .container {
+        padding: 1em;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .section {
+        padding: 1em 0.5em;
+        margin: 1em 0;
+        border-radius: 8px;
+      }
+      h1 {
+        font-size: 1.3em;
+      }
+      h2 {
+        font-size: 1.1em;
+        padding-bottom: 0.2em;
+      }
+      label {
+        font-size: 1em;
+        margin: 0.7em 0;
+      }
+      button {
+        font-size: 0.95em;
+        padding: 0.4em 0.7em;
+      }
+      footer {
+        font-size: 0.8em;
+        margin-top: 2em;
+      }
+    }
   </style>
 </head>
 <body>
-<div style="text-align: center; margin: 1em 0;"><button onclick="resetAll()">🔄 Reset tất cả</button></div>
+<div class="container">
+  <div style="text-align: center; margin-bottom: 1em;">
+    <button onclick="resetAll()">🔄 Reset All</button>
+  </div>
 
- <h1>💍 Danh Sách Chuẩn Bị Ngày Cưới 💍</h1>
+  <h1>💍 Danh Sách Chuẩn Bị Ngày Cưới 💍</h1>
+
+  <div id="checklist-content">
+    <!-- Bạn sẽ dán phần nội dung checklist tại đây -->
 
   <!-- 6–12 tháng trước cưới -->
-  <div class="section">
+  <div class="section" id="section-1">
     <h2>⏳ 6–12 tháng trước cưới</h2>
-          <button onclick="resetSection('section-0')">↺ Reset mốc này</button>
+          <button onclick="resetSection('section-1')">↺ Reset</button>
     
     <label><input type="checkbox"><span>Thông báo đính hôn với gia đình và bạn bè thân thiết</span></label>
     <label><input type="checkbox"><span>Chọn ngày cưới</span></label>
@@ -73,9 +158,9 @@
   </div>
 
   <!-- 3–6 tháng trước cưới -->
-  <div class="section">
+  <div class="section" id="section-2">
     <h2>📅 3–6 tháng trước cưới</h2>
-          <button onclick="resetSection('section-0')">↺ Reset mốc này</button>
+          <button onclick="resetSection('section-2')">↺ Reset</button>
 
     <label><input type="checkbox"><span>Gửi thiệp “Save the date”</span></label>
     <label><input type="checkbox"><span>Đặt nhà hàng hoặc không gian tổ chức tiệc cưới</span></label>
@@ -88,9 +173,9 @@
   </div>
 
   <!-- 1–2 tháng trước cưới -->
-  <div class="section">
+  <div class="section" id="section-3">
     <h2>🗓️ 1–2 tháng trước cưới</h2>
-          <button onclick="resetSection('section-0')">↺ Reset mốc này</button>
+          <button onclick="resetSection('section-3')">↺ Reset</button>
 
     <label><input type="checkbox"><span>Thử váy cưới và trang phục</span></label>
     <label><input type="checkbox"><span>Chốt danh sách khách mời</span></label>
@@ -102,8 +187,9 @@
   </div>
 
   <!-- 1 tuần trước cưới -->
-  <div class="section">
+  <div class="section" id="section-4">
     <h2>✅ 1 tuần trước cưới</h2>
+    <button onclick="resetSection('section-4')">↺ Reset</button>
     <label><input type="checkbox"><span>Làm đẹp (spa, da, tóc, móng)</span></label>
     <label><input type="checkbox"><span>Chuẩn bị bao lì xì, quà cảm ơn</span></label>
     <label><input type="checkbox"><span>In danh sách lễ vật</span></label>
@@ -112,9 +198,9 @@
   </div>
 
   <!-- Ngày cưới -->
-  <div class="section">
+  <div class="section" id="section-5">
     <h2>🎉 Ngày cưới</h2>
-          <button onclick="resetSection('section-0')">↺ Reset mốc này</button>
+          <button onclick="resetSection('section-5')">↺ Reset</button>
 
     <label><input type="checkbox"><span>Ăn sáng và giữ tinh thần tốt</span></label>
     <label><input type="checkbox"><span>Mang theo nhẫn cưới, giấy đăng ký kết hôn (nếu cần)</span></label>
@@ -123,25 +209,24 @@
   </div>
 
   <!-- Sau cưới -->
-  <div class="section">
+  <div class="section" id="section-6">
     <h2>📦 Sau cưới</h2>
-          <button onclick="resetSection('section-0')">↺ Reset mốc này</button>
-
+          <button onclick="resetSection('section-6')">↺ Reset</button>
     <label><input type="checkbox"><span>Gửi lời cảm ơn đến khách mời</span></label>
     <label><input type="checkbox"><span>Trả đồ thuê, thanh toán còn lại (nếu có)</span></label>
     <label><input type="checkbox"><span>Chỉnh sửa và nhận ảnh – video cưới</span></label>
     <label><input type="checkbox"><span>Bắt đầu tuần trăng mật ✈️</span></label>
   </div>
+  </div>
 
-
-<footer style="text-align: center; margin-top: 3em; font-size: 0.9em; color: #888;">
-  Cảm ơn ChatGPT đã giúp mình tạo nên checklist này.  
-  <br>
-  Nguồn cảm hứng từ <a href="https://www.facebook.com/junookyo.vn" target="_blank">Wedding Planning Template by JUNO_OKYO</a>.
-  <br><br>
-  📂 Bạn muốn sử dụng checklist này cho riêng mình?  
-  <a href="https://github.com/Misakivn/wedding-checklist" target="_blank">👉 Tải mã nguồn tại đây (GitHub)</a>
-</footer>
+  <footer>
+    Cảm ơn ChatGPT đã giúp mình tạo nên checklist này.<br>
+    Nguồn cảm hứng từ <a href="https://www.facebook.com/junookyo.vn" target="_blank">Wedding Planning Template by JUNO_OKYO</a>.
+    <br><br>
+    📂 Bạn muốn sử dụng checklist này cho riêng mình?  
+    <a href="https://github.com/Misakivn/wedding-checklist" target="_blank">👉 Tải mã nguồn tại đây (GitHub)</a>
+  </footer>
+</div>
 
 <script>
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
