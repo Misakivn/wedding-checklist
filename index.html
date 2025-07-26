@@ -126,8 +126,23 @@
     📂 Bạn muốn sử dụng checklist này cho riêng mình?  
     <a href="https://github.com/Misakivn/wedding-checklist" target="_blank">👉 Tải mã nguồn tại đây (GitHub)</a>
   </footer>
-</div>
+  <!-- 👁️ Đang có bao nhiêu người truy cập -->
+  <div style="text-align: center; margin-top: 1.5em; font-size: 0.9em; color: #555;">
+    👀 Đang có <span id="live-count">...</span> người truy cập
+  </div>
 
+  <script async src="//whos.amung.us/pingjs/?k=misakivn-checklist&t=Visitors&c=c2185b"></script>
+  <script>
+    function updateLiveVisitors() {
+      if (window.amungus && window.amungus.counter) {
+        document.getElementById('live-count').innerText = window.amungus.counter;
+      } else {
+        document.getElementById('live-count').innerText = '0';
+      }
+    }
+    setInterval(updateLiveVisitors, 2000);
+  </script>
+</div>
 <script src="main.js"></script>
 </body>
 </html>
