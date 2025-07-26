@@ -126,35 +126,12 @@
     📂 Bạn muốn sử dụng checklist này cho riêng mình?  
     <a href="https://github.com/Misakivn/wedding-checklist" target="_blank">👉 Tải mã nguồn tại đây (GitHub)</a>
   </footer>
-<!-- 👁️ Số người đang truy cập và tổng truy cập (CounterAPI) -->
-<div style="text-align: center; font-size: 0.9em; margin-top: 1.5em; color: #555;">
-  👀 Đang có <span id="counterapi-count">...</span> người truy cập
-  <div id="total-count" style="font-size: 0.85em; color: #777; margin-top: 4px;"></div>
+<!-- 👁️ Hiển thị tổng lượt truy cập (CounterAPI widget) -->
+<div style="text-align: center; margin-top: 2em;">
+  <div class="counterapi" style="min-height: 44px;"></div>
 </div>
-
-<script>
-  // Số người đang truy cập (realtime)
-  fetch("https://counterapi.com/api/wedding-checklist-misaki?method=ping")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("counterapi-count").innerText = data.count || '0';
-    })
-    .catch(() => {
-      document.getElementById("counterapi-count").innerText = '0';
-    });
-
-  // Tổng lượt truy cập (view)
-  fetch("https://counterapi.com/api/wedding-checklist-misaki?method=view")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("total-count").innerText = `📊 Tổng lượt truy cập: ${data.count || 0}`;
-    })
-    .catch(() => {
-      document.getElementById("total-count").innerText = `📊 Tổng lượt truy cập: ...`;
-    });
-</script>
-  </script>
-</div>
+<!-- CounterAPI script -->
+<script src="https://counterapi.com/c.js" async></script>
 <script src="main.js"></script>
 </body>
 </html>
